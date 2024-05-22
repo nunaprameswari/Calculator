@@ -6,74 +6,78 @@ const App = () => {
     <View style={styles.Background}>
       <StatusBar style={styles.Background} />
 
-      <View style={styles.Simbol}>
-        <View style={styles.PnAngka}>
-          <Text style={styles.SAngka}>C</Text>
+      <View style={{flex: 1.3}}></View>
+
+      <View style={{flex: 1}}>
+        <View style={styles.Simbol}>
+          <View style={styles.PnAngka}>
+            <Text style={styles.SAngka}>C</Text>
+          </View>
+          <View style={styles.PnAngka}>
+            <Text style={styles.SAngka}>%</Text>
+          </View>
+          <View style={styles.PnAngka}>
+            <Text style={styles.SAngka}>⌫</Text>
+          </View>
+          <View style={styles.PnAngka}>
+            <Text style={styles.SAngka}>÷</Text>
+          </View>
         </View>
-        <View style={styles.PnAngka}>
-          <Text style={styles.SAngka}>%</Text>
+        <View style={styles.Simbol}>
+          <View style={styles.PnAngka}>
+            <Text style={styles.Angka}>7</Text>
+          </View>
+          <View style={styles.PnAngka}>
+            <Text style={styles.Angka}>8</Text>
+          </View>
+          <View style={styles.PnAngka}>
+            <Text style={styles.Angka}>9</Text>
+          </View>
+          <View style={styles.PnAngka}>
+            <Text style={styles.SAngka}>x</Text>
+          </View>
         </View>
-        <View style={styles.PnAngka}>
-          <Text style={styles.SAngka}>⌫</Text>
+        <View style={styles.Simbol}>
+          <View style={styles.PnAngka}>
+            <Text style={styles.Angka}>4</Text>
+          </View>
+          <View style={styles.PnAngka}>
+            <Text style={styles.Angka}>5</Text>
+          </View>
+          <View style={styles.PnAngka}>
+            <Text style={styles.Angka}>6</Text>
+          </View>
+          <View style={styles.PnAngka}>
+            <Text style={styles.SAngka}>-</Text>
+          </View>
         </View>
-        <View style={styles.PnAngka}>
-          <Text style={styles.SAngka}>÷</Text>
+        <View style={styles.Simbol}>
+          <View style={styles.PnAngka}>
+            <Text style={styles.Angka}>1</Text>
+          </View>
+          <View style={styles.PnAngka}>
+            <Text style={styles.Angka}>2</Text>
+          </View>
+          <View style={styles.PnAngka}>
+            <Text style={styles.Angka}>3</Text>
+          </View>
+          <View style={styles.PnAngka}>
+            <Text style={styles.SAngka}>+</Text>
+          </View>
         </View>
-      </View>
-      <View style={styles.Simbol}>
-        <View style={styles.PnAngka}>
-          <Text style={styles.Angka}>7</Text>
-        </View>
-        <View style={styles.PnAngka}>
-          <Text style={styles.Angka}>8</Text>
-        </View>
-        <View style={styles.PnAngka}>
-          <Text style={styles.Angka}>9</Text>
-        </View>
-        <View style={styles.PnAngka}>
-          <Text style={styles.SAngka}>x</Text>
-        </View>
-      </View>
-      <View style={styles.Simbol}>
-        <View style={styles.PnAngka}>
-          <Text style={styles.Angka}>4</Text>
-        </View>
-        <View style={styles.PnAngka}>
-          <Text style={styles.Angka}>5</Text>
-        </View>
-        <View style={styles.PnAngka}>
-          <Text style={styles.Angka}>6</Text>
-        </View>
-        <View style={styles.PnAngka}>
-          <Text style={styles.SAngka}>-</Text>
-        </View>
-      </View>
-      <View style={styles.Simbol}>
-        <View style={styles.PnAngka}>
-          <Text style={styles.Angka}>1</Text>
-        </View>
-        <View style={styles.PnAngka}>
-          <Text style={styles.Angka}>2</Text>
-        </View>
-        <View style={styles.PnAngka}>
-          <Text style={styles.Angka}>3</Text>
-        </View>
-        <View style={styles.PnAngka}>
-          <Text style={styles.SAngka}>+</Text>
-        </View>
-      </View>
-      <View style={styles.Simbol}>
-        <View style={styles.PnAngka}>
-          <Text style={styles.Angka}>00</Text>
-        </View>
-        <View style={styles.PnAngka}>
-          <Text style={styles.Angka}>0</Text>
-        </View>
-        <View style={styles.PnAngka}>
-          <Text style={styles.Angka}>,</Text>
-        </View>
-        <View style={styles.PnAngka}>
-          <Text style={styles.SAngka}>=</Text>
+        <View style={styles.Simbol}>
+          <View style={styles.PnAngka}>
+            <Text style={styles.Angka}>00</Text>
+          </View>
+          <View style={styles.PnAngka}>
+            <Text style={styles.Angka}>0</Text>
+          </View>
+          <View style={styles.PnAngka}>
+            <Text style={styles.Angka}>,</Text>
+          </View>
+          <View style={styles.PnAngka}>
+            <Text style={styles.SAngka}>=</Text>
+          </View>
         </View>
       </View>
     </View>
@@ -89,6 +93,7 @@ const styles = StyleSheet.create({
   },
   Simbol: {
     flexDirection: 'row',
+    marginVertical: 10,
   },
   PnAngka: {
     flex: 1,
