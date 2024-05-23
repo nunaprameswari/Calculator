@@ -17,13 +17,6 @@ const App = () => {
     setResult(result + number);
   };
 
-  const calculatePembagi = pembagi => {
-    const number1 = eval(result);
-    const number2 = eval(result);
-    const hasil = number1 / number2;
-    setResult(hasil.toString());
-  };
-
   const calculateOperator = operator => {
     setResult(result + operator);
   };
