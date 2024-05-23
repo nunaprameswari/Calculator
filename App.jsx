@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-eval */
 import {
   Button,
@@ -14,6 +15,13 @@ const App = () => {
 
   const calculateNumber = number => {
     setResult(result + number);
+  };
+
+  const calculatePembagi = pembagi => {
+    const number1 = eval(result);
+    const number2 = eval(result);
+    const hasil = number1 / number2;
+    setResult(hasil.toString());
   };
 
   const calculateOperator = operator => {
@@ -60,8 +68,8 @@ const App = () => {
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.PnAngka}
-            onPress={() => calculateOperator('÷')}>
-            <Text style={styles.SAngka}>÷</Text>
+            onPress={() => calculateOperator('/')}>
+            <Text style={styles.SAngka}>/</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.Simbol}>
@@ -82,8 +90,8 @@ const App = () => {
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.PnAngka}
-            onPress={() => calculateOperator('x')}>
-            <Text style={styles.SAngka}>x</Text>
+            onPress={() => calculateOperator('*')}>
+            <Text style={styles.SAngka}>*</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.Simbol}>
@@ -143,8 +151,8 @@ const App = () => {
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.PnAngka}
-            onPress={() => calculateNumber(',')}>
-            <Text style={styles.Angka}>,</Text>
+            onPress={() => calculateNumber('.')}>
+            <Text style={styles.Angka}>.</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.PnAngka} onPress={calculate}>
             <Text style={styles.SAngka}>=</Text>
