@@ -1,4 +1,6 @@
+/* eslint-disable no-eval */
 import {
+  Button,
   StatusBar,
   StyleSheet,
   Text,
@@ -9,6 +11,19 @@ import React, {useState} from 'react';
 
 const App = () => {
   const [result, setResult] = useState('0');
+
+  const calculate = ({title}) => {
+    if (title == 'C') {
+      setResult('');
+    } else if (title == '⌫') {
+      setResult(result.substring(0, result.length - 1));
+    } else if (title == '=') {
+      const ans = Number(eval(result)).toFixed(3).toString();
+      setResult(ans);
+    } else {
+      setResult(result + title);
+    }
+  };
   return (
     <View style={styles.Background}>
       <StatusBar style={styles.Background} />
@@ -19,22 +34,42 @@ const App = () => {
 
       <View style={{flex: 1}}>
         <View style={styles.Simbol}>
-          <TouchableOpacity style={styles.PnAngka}>
-            <Text style={styles.SAngka}>C</Text>
+          <TouchableOpacity
+            style={styles.PnAngka}
+            onPress={() => calculate(title)}>
+            <Text style={styles.SAngka} title="C">
+              C
+            </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.PnAngka}>
-            <Text style={styles.SAngka}>%</Text>
+          <TouchableOpacity
+            style={styles.PnAngka}
+            onPress={() => calculate(title)}>
+            <Text style={styles.SAngka} title="%">
+              %
+            </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.PnAngka}>
-            <Text style={styles.SAngka}>⌫</Text>
+          <TouchableOpacity
+            style={styles.PnAngka}
+            onPress={() => calculate(title)}>
+            <Text style={styles.SAngka} title="⌫">
+              ⌫
+            </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.PnAngka}>
-            <Text style={styles.SAngka}>÷</Text>
+          <TouchableOpacity
+            style={styles.PnAngka}
+            onPress={() => calculate(title)}>
+            <Text style={styles.SAngka} title="÷">
+              ÷
+            </Text>
           </TouchableOpacity>
         </View>
         <View style={styles.Simbol}>
-          <TouchableOpacity style={styles.PnAngka}>
-            <Text style={styles.Angka}>7</Text>
+          <TouchableOpacity
+            style={styles.PnAngka}
+            onPress={() => calculate(title)}>
+            <Text style={styles.Angka} title="7">
+              7
+            </Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.PnAngka}>
             <Text style={styles.Angka}>8</Text>
@@ -122,5 +157,7 @@ const styles = StyleSheet.create({
     fontSize: 40,
     textAlign: 'right',
     paddingRight: 10,
+    marginTop: 360,
+    paddingBottom: 20,
   },
 });
