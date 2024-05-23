@@ -12,18 +12,31 @@ import React, {useState} from 'react';
 const App = () => {
   const [result, setResult] = useState('0');
 
-  const calculate = ({title}) => {
-    if (title == 'C') {
-      setResult('');
-    } else if (title == '⌫') {
-      setResult(result.substring(0, result.length - 1));
-    } else if (title == '=') {
-      const ans = Number(eval(result)).toFixed(3).toString();
-      setResult(ans);
-    } else {
-      setResult(result + title);
+  const calculateNumber = number => {
+    setResult(result + number);
+  };
+
+  const calculateOperator = operator => {
+    setResult(result + operator);
+  };
+
+  const calculateClear = () => {
+    setResult('');
+  };
+
+  const calculateDelete = () => {
+    setResult(result.substring(0, result.length - 1));
+  };
+
+  const calculate = () => {
+    try {
+      const display = eval(result);
+      setResult(display.toString());
+    } catch (error) {
+      setResult('Error');
     }
   };
+
   return (
     <View style={styles.Background}>
       <StatusBar style={styles.Background} />
@@ -34,92 +47,106 @@ const App = () => {
 
       <View style={{flex: 1}}>
         <View style={styles.Simbol}>
-          <TouchableOpacity
-            style={styles.PnAngka}
-            onPress={() => calculate(title)}>
-            <Text style={styles.SAngka} title="C">
-              C
-            </Text>
+          <TouchableOpacity style={styles.PnAngka} onPress={calculateClear}>
+            <Text style={styles.SAngka}>C</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.PnAngka}
-            onPress={() => calculate(title)}>
-            <Text style={styles.SAngka} title="%">
-              %
-            </Text>
+            onPress={() => calculateOperator('%')}>
+            <Text style={styles.SAngka}>%</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.PnAngka} onPress={calculateDelete}>
+            <Text style={styles.SAngka}>⌫</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.PnAngka}
-            onPress={() => calculate(title)}>
-            <Text style={styles.SAngka} title="⌫">
-              ⌫
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.PnAngka}
-            onPress={() => calculate(title)}>
-            <Text style={styles.SAngka} title="÷">
-              ÷
-            </Text>
+            onPress={() => calculateOperator('÷')}>
+            <Text style={styles.SAngka}>÷</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.Simbol}>
           <TouchableOpacity
             style={styles.PnAngka}
-            onPress={() => calculate(title)}>
-            <Text style={styles.Angka} title="7">
-              7
-            </Text>
+            onPress={() => calculateNumber('7')}>
+            <Text style={styles.Angka}>7</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.PnAngka}>
+          <TouchableOpacity
+            style={styles.PnAngka}
+            onPress={() => calculateNumber('8')}>
             <Text style={styles.Angka}>8</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.PnAngka}>
+          <TouchableOpacity
+            style={styles.PnAngka}
+            onPress={() => calculateNumber('9')}>
             <Text style={styles.Angka}>9</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.PnAngka}>
+          <TouchableOpacity
+            style={styles.PnAngka}
+            onPress={() => calculateOperator('x')}>
             <Text style={styles.SAngka}>x</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.Simbol}>
-          <TouchableOpacity style={styles.PnAngka}>
+          <TouchableOpacity
+            style={styles.PnAngka}
+            onPress={() => calculateNumber('4')}>
             <Text style={styles.Angka}>4</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.PnAngka}>
+          <TouchableOpacity
+            style={styles.PnAngka}
+            onPress={() => calculateNumber('5')}>
             <Text style={styles.Angka}>5</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.PnAngka}>
+          <TouchableOpacity
+            style={styles.PnAngka}
+            onPress={() => calculateNumber('6')}>
             <Text style={styles.Angka}>6</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.PnAngka}>
+          <TouchableOpacity
+            style={styles.PnAngka}
+            onPress={() => calculateOperator('-')}>
             <Text style={styles.SAngka}>-</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.Simbol}>
-          <TouchableOpacity style={styles.PnAngka}>
+          <TouchableOpacity
+            style={styles.PnAngka}
+            onPress={() => calculateNumber('1')}>
             <Text style={styles.Angka}>1</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.PnAngka}>
+          <TouchableOpacity
+            style={styles.PnAngka}
+            onPress={() => calculateNumber('2')}>
             <Text style={styles.Angka}>2</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.PnAngka}>
+          <TouchableOpacity
+            style={styles.PnAngka}
+            onPress={() => calculateNumber('3')}>
             <Text style={styles.Angka}>3</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.PnAngka}>
+          <TouchableOpacity
+            style={styles.PnAngka}
+            onPress={() => calculateOperator('+')}>
             <Text style={styles.SAngka}>+</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.Simbol}>
-          <TouchableOpacity style={styles.PnAngka}>
+          <TouchableOpacity
+            style={styles.PnAngka}
+            onPress={() => calculateNumber('00')}>
             <Text style={styles.Angka}>00</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.PnAngka}>
+          <TouchableOpacity
+            style={styles.PnAngka}
+            onPress={() => calculateNumber('0')}>
             <Text style={styles.Angka}>0</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.PnAngka}>
+          <TouchableOpacity
+            style={styles.PnAngka}
+            onPress={() => calculateNumber(',')}>
             <Text style={styles.Angka}>,</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.PnAngka}>
+          <TouchableOpacity style={styles.PnAngka} onPress={calculate}>
             <Text style={styles.SAngka}>=</Text>
           </TouchableOpacity>
         </View>
