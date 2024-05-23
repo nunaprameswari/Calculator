@@ -1,83 +1,92 @@
-import {StatusBar, StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import {
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import React, {useState} from 'react';
 
 const App = () => {
+  const [result, setResult] = useState('0');
   return (
     <View style={styles.Background}>
       <StatusBar style={styles.Background} />
 
-      <View style={{flex: 1.3}}></View>
+      <View style={{flex: 1.3, backgroundColor: '#000'}}>
+        <Text style={styles.nol}>{result}</Text>
+      </View>
 
       <View style={{flex: 1}}>
         <View style={styles.Simbol}>
-          <View style={styles.PnAngka}>
+          <TouchableOpacity style={styles.PnAngka}>
             <Text style={styles.SAngka}>C</Text>
-          </View>
-          <View style={styles.PnAngka}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.PnAngka}>
             <Text style={styles.SAngka}>%</Text>
-          </View>
-          <View style={styles.PnAngka}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.PnAngka}>
             <Text style={styles.SAngka}>⌫</Text>
-          </View>
-          <View style={styles.PnAngka}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.PnAngka}>
             <Text style={styles.SAngka}>÷</Text>
-          </View>
+          </TouchableOpacity>
         </View>
         <View style={styles.Simbol}>
-          <View style={styles.PnAngka}>
+          <TouchableOpacity style={styles.PnAngka}>
             <Text style={styles.Angka}>7</Text>
-          </View>
-          <View style={styles.PnAngka}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.PnAngka}>
             <Text style={styles.Angka}>8</Text>
-          </View>
-          <View style={styles.PnAngka}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.PnAngka}>
             <Text style={styles.Angka}>9</Text>
-          </View>
-          <View style={styles.PnAngka}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.PnAngka}>
             <Text style={styles.SAngka}>x</Text>
-          </View>
+          </TouchableOpacity>
         </View>
         <View style={styles.Simbol}>
-          <View style={styles.PnAngka}>
+          <TouchableOpacity style={styles.PnAngka}>
             <Text style={styles.Angka}>4</Text>
-          </View>
-          <View style={styles.PnAngka}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.PnAngka}>
             <Text style={styles.Angka}>5</Text>
-          </View>
-          <View style={styles.PnAngka}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.PnAngka}>
             <Text style={styles.Angka}>6</Text>
-          </View>
-          <View style={styles.PnAngka}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.PnAngka}>
             <Text style={styles.SAngka}>-</Text>
-          </View>
+          </TouchableOpacity>
         </View>
         <View style={styles.Simbol}>
-          <View style={styles.PnAngka}>
+          <TouchableOpacity style={styles.PnAngka}>
             <Text style={styles.Angka}>1</Text>
-          </View>
-          <View style={styles.PnAngka}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.PnAngka}>
             <Text style={styles.Angka}>2</Text>
-          </View>
-          <View style={styles.PnAngka}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.PnAngka}>
             <Text style={styles.Angka}>3</Text>
-          </View>
-          <View style={styles.PnAngka}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.PnAngka}>
             <Text style={styles.SAngka}>+</Text>
-          </View>
+          </TouchableOpacity>
         </View>
         <View style={styles.Simbol}>
-          <View style={styles.PnAngka}>
+          <TouchableOpacity style={styles.PnAngka}>
             <Text style={styles.Angka}>00</Text>
-          </View>
-          <View style={styles.PnAngka}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.PnAngka}>
             <Text style={styles.Angka}>0</Text>
-          </View>
-          <View style={styles.PnAngka}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.PnAngka}>
             <Text style={styles.Angka}>,</Text>
-          </View>
-          <View style={styles.PnAngka}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.PnAngka}>
             <Text style={styles.SAngka}>=</Text>
-          </View>
+          </TouchableOpacity>
         </View>
       </View>
     </View>
@@ -88,7 +97,7 @@ export default App;
 
 const styles = StyleSheet.create({
   Background: {
-    backgroundColor: '#000',
+    backgroundColor: '#3a3636b0',
     flex: 1,
   },
   Simbol: {
@@ -108,5 +117,10 @@ const styles = StyleSheet.create({
   SAngka: {
     color: '#15fff3',
     fontSize: 28,
+  },
+  nol: {
+    fontSize: 40,
+    textAlign: 'right',
+    paddingRight: 10,
   },
 });
